@@ -14,5 +14,9 @@ class Introduction : AppCompatActivity() {
         val selectedName=intent.getStringExtra("superHeroName")
         textView.text=selectedName
 
+        var selectedHero=SingletonClass.selectedHero
+        var selectedPicture=SingletonClass.picture
+        imageView.setImageBitmap(selectedPicture)
+
     }
 }
