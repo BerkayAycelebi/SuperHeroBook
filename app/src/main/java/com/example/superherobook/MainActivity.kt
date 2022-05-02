@@ -4,6 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,5 +32,9 @@ class MainActivity : AppCompatActivity() {
         SuperHeroPicture.add(ironmanBitmap)
         SuperHeroPicture.add(aquamanBitmap)
         SuperHeroPicture.add(spidermanBitmap)
+        val layoutManager=LinearLayoutManager(this)
+        recyclerView.layoutManager=layoutManager
+        val adapter=RecycleAdapter(SuperHeroNames,SuperHeroPicture)
+        recyclerView.adapter=adapter
     }
 }
