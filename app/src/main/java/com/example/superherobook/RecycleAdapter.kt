@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.recycle_ro.view.*
 
-class RecycleAdapter(val heroList: ArrayList<String>,val heroPicture: ArrayList<Bitmap>):RecyclerView.Adapter<RecycleAdapter.SuperHeroVH>() {
+class RecycleAdapter(val heroList: ArrayList<String>,val heroPicture: ArrayList<Int>):RecyclerView.Adapter<RecycleAdapter.SuperHeroVH>() {
     class SuperHeroVH(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }
@@ -25,8 +25,12 @@ class RecycleAdapter(val heroList: ArrayList<String>,val heroPicture: ArrayList<
         holder.itemView.setOnClickListener {
             val intent=Intent(holder.itemView.context,Introduction::class.java)
             intent.putExtra("superHeroName",heroList.get(position))
-            val singleton=SingletonClass.selectedHero
+            intent.putExtra("heroPicture",heroPicture.get(position))
+           /* val singleton=SingletonClass.selectedHero
             singleton.picture= heroPicture.get(position)
+            */
+
+
             holder.itemView.context.startActivity(intent)
         }
     }
